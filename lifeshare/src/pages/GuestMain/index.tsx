@@ -1,5 +1,17 @@
 import * as React from "react";
 
-const GuestMain: React.FC = () => <div>GuestMain</div>;
+import { Header, HouseList } from "./../../container";
+import { dummy } from "./dummy";
+
+interface Props {
+  isLogin: boolean;
+}
+
+const GuestMain: React.FC<Props> = ({ isLogin }) => (
+  <div>
+    <Header isLogin={isLogin} />
+    <HouseList houses={dummy} />
+  </div>
+);
 
 export default GuestMain;

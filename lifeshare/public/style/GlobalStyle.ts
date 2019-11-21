@@ -9,7 +9,7 @@ export const GlobalStyle: GlobalStyleComponent<
   DefaultTheme
 > = createGlobalStyle`
     
-    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+    @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css");
     
       html, body, div, span, applet, object, iframe,
       h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -31,7 +31,7 @@ export const GlobalStyle: GlobalStyleComponent<
     
       html, body{
         font-size: 0;
-        font-family: 'Noto Sans KR', sans-serif;
+        font-family: 'NanumBarunGothic', sans-serif;
       }
     
       article, aside, details, figcaption, figure,
