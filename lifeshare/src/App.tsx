@@ -3,13 +3,28 @@ import * as ReactDOM from "react-dom";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 import { GlobalStyle } from "./../public/style/GlobalStyle";
+import { AdminMain, GuestMain, Login, Post, Search, Upload } from "./pages";
 
-const App: React.FC = () => (
-  <BrowserRouter>
-    <GlobalStyle />
-    <Switch></Switch>
-  </BrowserRouter>
-);
+const App: React.FC = () => {
+  const [isAdmin, setIsAdmin] = React.useState(0);
+
+  return (
+    <BrowserRouter>
+      <GlobalStyle />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          component={isAdmin === 0 ? AdminMain : GuestMain}
+        />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/post/:id" component={Post} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/upload" component={Upload} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 export default App;
 
