@@ -7,6 +7,16 @@ export const Div = styled.div`
 
 `;
 
+export const Logo = styled.img`
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 200px;
+    height: 35px; 
+    padding-bottom: 73px;
+    padding-left: 8px;
+`;
+
 export const LoginContainer = styled.div`
     display: flex;
     align-items: center;
