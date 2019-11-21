@@ -7,6 +7,7 @@ import { AdminMain, GuestMain, Login, Post, Search, Upload } from "./pages";
 
 const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = React.useState(0);
+  const [isLogin, setIsLogin] = React.useState(true);
 
   return (
     <BrowserRouter>
@@ -15,7 +16,9 @@ const App: React.FC = () => {
         <Route
           exact
           path="/"
-          component={isAdmin === 0 ? AdminMain : GuestMain}
+          component={
+            isAdmin === 1 ? AdminMain : () => <GuestMain isLogin={isLogin} />
+          }
         />
         <Route exact path="/login" component={Login} />
         <Route exact path="/post/:id" component={Post} />
