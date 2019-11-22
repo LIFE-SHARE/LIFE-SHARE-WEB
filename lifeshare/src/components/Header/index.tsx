@@ -26,7 +26,11 @@ const Header: React.FC<Props> = ({ isLogin }) => (
           <S.HeaderButton>로그아웃</S.HeaderButton>
         </>
       ) : (
-        <S.HeaderButton>로그인</S.HeaderButton>
+        <S.HeaderButton>
+          <Link to="login" style={{ all: "unset" }}>
+            로그인
+          </Link>
+        </S.HeaderButton>
       )}
     </S.HeaderItemsContainer>
   </S.HeaderContainer>

@@ -13,9 +13,20 @@ import {
   MyPage
 } from "./pages";
 
+Post.defaultProps = {
+  isLogin: false
+}
 const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = React.useState(0);
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
+
+  const handleLoginStatus = (status: boolean) => {
+    setIsLogin(status);
+  };
+
+  const handleAdminStatus = (status: number) => {
+    setIsAdmin(status);
+  };
 
   return (
     <BrowserRouter>
@@ -28,8 +39,22 @@ const App: React.FC = () => {
             isAdmin === 1 ? AdminMain : () => <GuestMain isLogin={isLogin} />
           }
         />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/post/:id" component={Post} />
+        <Route
+          exact
+          path="/login"
+          component={() => (
+            <Login
+              isLogin={isLogin}
+              handleLoginStatus={handleLoginStatus}
+              handleAdminStatus={handleAdminStatus}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/post/:id"
+          component={() => <Post isLogin={isLogin} />}
+        />
         <Route exact path="/search" component={Search} />
         <Route exact path="/upload" component={Upload} />
         <Route

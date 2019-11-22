@@ -11,6 +11,7 @@ export const HoustItemContainer = styled.div`
 
 export const HouseItemImg = styled.img`
   display: block;
+  object-fit: cover;
   width: 249px;
   height: 211px;
   border-top-left-radius: 16px;
